@@ -123,7 +123,7 @@ public class Main {
                 showCollection(infoBase,infoBase);
             }
             else if (chat.equals("Стоп")) {
-                System.out.println("\tНоутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
+                System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
                 System.out.println("\t\t\t\t\tВсего хорошего!");
                return;
             }
@@ -148,7 +148,7 @@ public class Main {
                 showCollection(infoBase,infoBase);
             }
             else if (chat.equals("Стоп")) {
-                System.out.println("\tНоутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
+                System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
                 System.out.println("\t\t\t\t\tВсего хорошего!");
                 return;
             }
@@ -170,7 +170,7 @@ public class Main {
                 showCollection(infoBase,infoBase);
             }
             else if (chat.equals("Стоп")) {
-                System.out.println("\tНоутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
+                System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
                 System.out.println("\t\t\t\t\tВсего хорошего!");
                 return;
             }
@@ -192,7 +192,7 @@ public class Main {
                 showCollection(infoBase,infoBase);
             }
             else if (chat.equals("Стоп")) {
-                System.out.println("\tНоутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
+                System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
                 System.out.println("\t\t\t\t\tВсего хорошего!");
                 return;
             }
@@ -215,7 +215,7 @@ public class Main {
                 showCollection(infoBase,infoBase);
             }
             else if (chat.equals("Стоп")) {
-                System.out.println("\tНоутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
+                System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
                 System.out.println("\t\t\t\t\tВсего хорошего!");
                 return;
             }
@@ -238,7 +238,7 @@ public class Main {
                 showCollection(infoBase,infoBase);
             }
             else if (chat.equals("Стоп")) {
-                System.out.println("\tНоутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
+                System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
                 System.out.println("\t\t\t\t\tВсего хорошего!");
                 return;
             }
