@@ -20,7 +20,10 @@ public class Main {
     public static void main(String[] args) {
         Set<Config> laptops = new HashSet<>();
         Set<Config> infoBase = new HashSet<>();
-        int count = 20;
+        Random random = new Random();
+        int minNum = 15;
+        int maxNum = 40;
+        int count = random.nextInt(maxNum-minNum)+minNum;
         System.out.println("\t\t\t\tДобро пожаловать в магазин!");
         System.out.println("\t\t\tМы представляем ноутбуки на любой вкус!");
         System.out.println("\t\t\t\tСейчас в наличие " + count + " ноутбуков!\n");
