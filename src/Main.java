@@ -28,9 +28,28 @@ public class Main {
         System.out.println("\t\t\tМы представляем ноутбуки на любой вкус!");
         System.out.println("\t\t\t\tСейчас в наличие " + count + " ноутбуков!\n");
         fillSet(laptops, infoBase, count);
-        getLaptop(laptops, infoBase);
-    }
+        showCollection(laptops,infoBase);
 
+    }
+    static void showCollection(Set<Config> laptopCollection, Set<Config> infoBase){
+        System.out.println("Распечатать весь список[Печать] ноутбуков или подобрать[Подбор] по параметрам?");
+        Scanner scan = new Scanner(System.in);
+        String resScan = scan.next();
+        if(resScan.equals("Печать")){
+            for (Config it: laptopCollection) {
+                System.out.println(it);
+            }
+            showCollection(laptopCollection,infoBase);
+        } else if (resScan.equals("Подбор")) {
+            getLaptop(laptopCollection, infoBase);
+
+        }
+        else {
+            System.out.println("Введите верное значение!");
+            showCollection(laptopCollection,infoBase);
+        }
+
+    }
     static void laptopFill(Set<Config> laptops) {
         Config laptop = new Config();
         laptop.color = laptop.getColor();
@@ -101,7 +120,7 @@ public class Main {
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
-                getLaptop(infoBase, infoBase);
+                showCollection(infoBase,infoBase);
             }
 
         } else if (getScan == 2) {
@@ -120,7 +139,7 @@ public class Main {
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
-                getLaptop(infoBase, infoBase);
+                showCollection(infoBase,infoBase);
             }
         } else if (getScan == 3) {
             System.out.print("Укажите минимальный объём HDD: ");
@@ -137,7 +156,7 @@ public class Main {
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
-                getLaptop(infoBase, infoBase);
+                showCollection(infoBase,infoBase);
             }
         } else if (getScan == 4) {
             System.out.print("Введите минимальный объём RAM: ");
@@ -154,7 +173,7 @@ public class Main {
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
-                getLaptop(infoBase, infoBase);
+                showCollection(infoBase,infoBase);
             }
         } else if (getScan == 5) {
             System.out.println("Поиск по системе: [Windows],[Linux],[Android],[noOS]");
@@ -172,7 +191,7 @@ public class Main {
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
-                getLaptop(infoBase, infoBase);
+                showCollection(infoBase,infoBase);
             }
         } else if (getScan == 6) {
             System.out.println("Поиск по цвету: [Белый],[Чёрный],[Серебристый],[Золотой]");
@@ -190,7 +209,7 @@ public class Main {
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
-                getLaptop(infoBase, infoBase);
+                showCollection(infoBase,infoBase);
             }
         } else {
             System.out.println("Вы ввели неверное значение!");
