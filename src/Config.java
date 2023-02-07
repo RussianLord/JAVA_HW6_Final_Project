@@ -9,7 +9,8 @@ public class Config {
     String brand;
 
     public String toString() {
-        return "Производитель: " + brand + ". Диагональ: " + inch + "\". Размер HDD: " + hdd + " Гб. Объём RAM: " + ram + "Гб. Операционная система: " + system + ". Цвет: " + color;
+        return "Производитель: " + brand + ". Диагональ: " + inch + "\". Размер HDD: " + hdd + " Гб. Объём RAM: "
+                + ram + "Гб. Операционная система: " + system + ". Цвет: " + color;
     }
 
     String getColor() {

@@ -115,13 +115,17 @@ public class Main {
             }
 
 
-            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше]");
+            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше] или [Стоп] для остановки");
             String chat = insert.next();
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
                 showCollection(infoBase,infoBase);
             }
+            else if (chat.equals("Стоп")) {
+               return;
+            }
+
 
         } else if (getScan == 2) {
             System.out.println("Поиск по диагонали: [14.1],[15.6],[16.0],[17.3]");
@@ -134,12 +138,15 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше]");
+            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше] или [Стоп] для остановки");
             String chat = insert.next();
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
                 showCollection(infoBase,infoBase);
+            }
+            else if (chat.equals("Стоп")) {
+                return;
             }
         } else if (getScan == 3) {
             System.out.print("Укажите минимальный объём HDD: ");
@@ -151,12 +158,15 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше]");
+            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше] или [Стоп] для остановки");
             String chat = insert.next();
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
                 showCollection(infoBase,infoBase);
+            }
+            else if (chat.equals("Стоп")) {
+                return;
             }
         } else if (getScan == 4) {
             System.out.print("Введите минимальный объём RAM: ");
@@ -168,12 +178,15 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше]");
+            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше] или [Стоп] для остановки");
             String chat = insert.next();
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
                 showCollection(infoBase,infoBase);
+            }
+            else if (chat.equals("Стоп")) {
+                return;
             }
         } else if (getScan == 5) {
             System.out.println("Поиск по системе: [Windows],[Linux],[Android],[noOS]");
@@ -186,12 +199,15 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше]");
+            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше] или [Стоп] для остановки");
             String chat = insert.next();
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
                 showCollection(infoBase,infoBase);
+            }
+            else if (chat.equals("Стоп")) {
+                return;
             }
         } else if (getScan == 6) {
             System.out.println("Поиск по цвету: [Белый],[Чёрный],[Серебристый],[Золотой]");
@@ -204,12 +220,15 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше]");
+            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше] или [Стоп] для остановки");
             String chat = insert.next();
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
                 showCollection(infoBase,infoBase);
+            }
+            else if (chat.equals("Стоп")) {
+                return;
             }
         } else {
             System.out.println("Вы ввели неверное значение!");
