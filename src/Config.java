@@ -1,12 +1,9 @@
 import java.util.Random;
 
 public class Config {
-    int ram;
-    int hdd;
+    int ram, hdd;
     double inch;
-    String system;
-    String color;
-    String brand;
+    String system, color, brand;
 
     public String toString() {
         return "Производитель: " + brand + ". Диагональ: " + inch + "\". Размер HDD: " + hdd + " Гб. Объём RAM: "
