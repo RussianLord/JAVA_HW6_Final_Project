@@ -41,8 +41,8 @@ public class Main {
             for (Config it : laptopCollection) {
                 System.out.println(it);
             }
-            System.out.println("\n");
-            System.out.println("\t\tСписок всех доступных ноутбуков сохранён в файл Laptops_Collection.txt");
+            System.out.println("");
+            System.out.println("\t\tСписок всех доступных ноутбуков сохранён в файл Laptops_Collection.txt\n");
             showCollection(laptopCollection, infoBase, nameStore);
         } else if (resScan.equals("Подбор")) {
             getLaptop(laptopCollection, infoBase, nameStore);
