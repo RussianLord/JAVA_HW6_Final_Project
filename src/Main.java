@@ -113,21 +113,7 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-
-
-            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше] или [Стоп] для остановки");
-            String chat = insert.next();
-            if (chat.equals("Дальше")) {
-                getLaptop(newSet, laptops);
-            } else if (chat.equals("Заново")) {
-                showCollection(infoBase, infoBase);
-            } else if (chat.equals("Стоп")) {
-                System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
-                System.out.println("\t\t\t\t\tВсего хорошего!");
-                return;
-            }
-
-
+            stepNext(insert, newSet, laptops, infoBase);
         } else if (getScan == 2) {
             System.out.println("Поиск по диагонали: [14.1],[15.6],[16.0],[17.3]");
             System.out.print("Введите минимальную диагональ(можно использовать запятую): ");
@@ -139,17 +125,7 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше] или [Стоп] для остановки");
-            String chat = insert.next();
-            if (chat.equals("Дальше")) {
-                getLaptop(newSet, laptops);
-            } else if (chat.equals("Заново")) {
-                showCollection(infoBase, infoBase);
-            } else if (chat.equals("Стоп")) {
-                System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
-                System.out.println("\t\t\t\t\tВсего хорошего!");
-                return;
-            }
+            stepNext(insert, newSet, laptops, infoBase);
         } else if (getScan == 3) {
             System.out.print("Укажите минимальный объём HDD: ");
             int scan = insert.nextInt();
@@ -160,17 +136,7 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше] или [Стоп] для остановки");
-            String chat = insert.next();
-            if (chat.equals("Дальше")) {
-                getLaptop(newSet, laptops);
-            } else if (chat.equals("Заново")) {
-                showCollection(infoBase, infoBase);
-            } else if (chat.equals("Стоп")) {
-                System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
-                System.out.println("\t\t\t\t\tВсего хорошего!");
-                return;
-            }
+            stepNext(insert, newSet, laptops, infoBase);
         } else if (getScan == 4) {
             System.out.print("Введите минимальный объём RAM: ");
             int scan = insert.nextInt();
@@ -181,17 +147,7 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше] или [Стоп] для остановки");
-            String chat = insert.next();
-            if (chat.equals("Дальше")) {
-                getLaptop(newSet, laptops);
-            } else if (chat.equals("Заново")) {
-                showCollection(infoBase, infoBase);
-            } else if (chat.equals("Стоп")) {
-                System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
-                System.out.println("\t\t\t\t\tВсего хорошего!");
-                return;
-            }
+            stepNext(insert, newSet, laptops, infoBase);
         } else if (getScan == 5) {
             System.out.println("Поиск по системе: [Windows],[Linux],[Android],[noOS]");
             System.out.print("Введите название предпочтительной системы из списка: ");
@@ -203,17 +159,7 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше] или [Стоп] для остановки");
-            String chat = insert.next();
-            if (chat.equals("Дальше")) {
-                getLaptop(newSet, laptops);
-            } else if (chat.equals("Заново")) {
-                showCollection(infoBase, infoBase);
-            } else if (chat.equals("Стоп")) {
-                System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
-                System.out.println("\t\t\t\t\tВсего хорошего!");
-                return;
-            }
+            stepNext(insert, newSet, laptops, infoBase);
         } else if (getScan == 6) {
             System.out.println("Поиск по цвету: [Белый],[Чёрный],[Серебристый],[Золотой]");
             System.out.print("Введите предпочтительный цвет из списка: ");
@@ -225,21 +171,26 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше] или [Стоп] для остановки");
-            String chat = insert.next();
-            if (chat.equals("Дальше")) {
-                getLaptop(newSet, laptops);
-            } else if (chat.equals("Заново")) {
-                showCollection(infoBase, infoBase);
-            } else if (chat.equals("Стоп")) {
-                System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
-                System.out.println("\t\t\t\t\tВсего хорошего!");
-                return;
-            }
+            stepNext(insert, newSet, laptops, infoBase);
         } else {
             System.out.println("Вы ввели неверное значение!");
             getLaptop(laptops, infoBase);
         }
         insert.close();
+    }
+
+    static void stepNext(Scanner insert, Set<Config> newSet, Set<Config> laptops, Set<Config> infoBase) {
+        System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше] или [Стоп] для остановки");
+        String chat = insert.next();
+        if (chat.equals("Дальше")) {
+            getLaptop(newSet, laptops);
+        } else if (chat.equals("Заново")) {
+            showCollection(infoBase, infoBase);
+        } else if (chat.equals("Стоп")) {
+            System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
+            System.out.println("\t\t\t\t\tВсего хорошего!");
+            return;
+        }
+        return;
     }
 }
