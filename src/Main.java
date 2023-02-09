@@ -150,7 +150,7 @@ public class Main {
             System.out.print("Укажите минимальный объём HDD(2048 max): ");
             int scan = insert.nextInt();
             if (scan > 2048) {
-                System.out.println("Данной объёма HDD нет в наличие!");
+                System.out.println("Данного объёма HDD нет в наличие!");
                 getLaptop(laptops, infoBase, nameStore);
             } else {
                 for (Config it : laptops) {
@@ -168,7 +168,7 @@ public class Main {
             System.out.print("Введите минимальный объём RAM(32 max): ");
             int scan = insert.nextInt();
             if (scan > 32) {
-                System.out.println("Данной объёма RAM нет в наличие!");
+                System.out.println("Данного объёма RAM нет в наличие!");
                 getLaptop(laptops, infoBase, nameStore);
             } else {
                 for (Config it : laptops) {
