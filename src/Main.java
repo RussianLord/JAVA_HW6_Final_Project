@@ -111,14 +111,23 @@ public class Main {
             System.out.println("Поиск по производителям: [Asus],[Acer],[Lenovo],[HP],[Huawei]");
             System.out.print("Введите название предпочтительного бренда из списка: ");
             String name = insert.next();
+            int  checkCount = 0;
             for (Config it : laptops) {
                 if (name.equals(it.brand)) {
                     System.out.println(it);
                     newSet.add(it);
                     writeFile(newSet);
+                    checkCount++;
                 }
             }
-            stepNext(insert, newSet, laptops, infoBase, nameStore);
+            if(checkCount<1){
+                System.out.println("Данной модели нет в наличие!");
+                getLaptop(laptops, infoBase, nameStore);
+            }
+            else {
+                stepNext(insert, newSet, laptops, infoBase, nameStore);
+            }
+
         } else if (getScan == 2) {
             System.out.println("Поиск по диагонали: [14.1],[15.6],[16.0],[17.3]");
             System.out.print("Введите минимальную диагональ(можно использовать запятую): ");
@@ -157,26 +166,42 @@ public class Main {
             System.out.println("Поиск по системе: [Windows],[Linux],[Android],[noOS]");
             System.out.print("Введите название предпочтительной системы из списка: ");
             String system = insert.next();
+            int  checkCount = 0;
             for (Config it : laptops) {
                 if (system.equals(it.system)) {
                     System.out.println(it);
                     newSet.add(it);
                     writeFile(newSet);
+                    checkCount++;
                 }
             }
-            stepNext(insert, newSet, laptops, infoBase, nameStore);
+            if(checkCount<1){
+                System.out.println("Данной системы нет в наличие!");
+                getLaptop(laptops, infoBase, nameStore);
+            }
+            else {
+                stepNext(insert, newSet, laptops, infoBase, nameStore);
+            }
         } else if (getScan == 6) {
             System.out.println("Поиск по цвету: [Белый],[Чёрный],[Серебристый],[Золотой]");
             System.out.print("Введите предпочтительный цвет из списка: ");
             String color = insert.next();
+            int checkCount = 0;
             for (Config it : laptops) {
                 if (color.equals(it.color)) {
                     System.out.println(it);
                     newSet.add(it);
                     writeFile(newSet);
+                    checkCount++;
                 }
             }
-            stepNext(insert, newSet, laptops, infoBase, nameStore);
+            if(checkCount<1){
+                System.out.println("Данного цвета нет в наличие!");
+                getLaptop(laptops, infoBase, nameStore);
+            }
+            else {
+                stepNext(insert, newSet, laptops, infoBase, nameStore);
+            }
         } else {
             System.out.println("Вы ввели неверное значение!");
             getLaptop(laptops, infoBase, nameStore);
