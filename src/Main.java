@@ -120,6 +120,8 @@ public class Main {
                     checkCount++;
                 }
             }
+            System.out.println("");
+            System.out.println("Количество соответствующих моделей: "+newSet.size());
             if(checkCount<1){
                 System.out.println("Данной модели нет в наличие!");
                 getLaptop(laptops, infoBase, nameStore);
@@ -132,36 +134,61 @@ public class Main {
             System.out.println("Поиск по диагонали: [14.1],[15.6],[16.0],[17.3]");
             System.out.print("Введите минимальную диагональ(можно использовать запятую): ");
             double mark = insert.nextDouble();
-            for (Config it : laptops) {
-                if (mark <= it.inch) {
-                    System.out.println(it);
-                    newSet.add(it);
-                    writeFile(newSet);
-                }
+            if(mark>17.3){
+                System.out.println("Данной модели нет в наличие!");
+                getLaptop(laptops, infoBase, nameStore);
             }
-            stepNext(insert, newSet, laptops, infoBase, nameStore);
+            else {
+                for (Config it : laptops) {
+                    if (mark <= it.inch) {
+                        System.out.println(it);
+                        newSet.add(it);
+                        writeFile(newSet);
+                    }
+                }
+                System.out.println("");
+                System.out.println("Количество соответствующих моделей: "+newSet.size());
+                stepNext(insert, newSet, laptops, infoBase, nameStore);
+            }
+
         } else if (getScan == 3) {
             System.out.print("Укажите минимальный объём HDD(2048 max): ");
             int scan = insert.nextInt();
-            for (Config it : laptops) {
-                if (scan <= it.hdd) {
-                    System.out.println(it);
-                    newSet.add(it);
-                    writeFile(newSet);
-                }
+            if(scan>2048){
+                System.out.println("Данной объёма HDD нет в наличие!");
+                getLaptop(laptops, infoBase, nameStore);
             }
-            stepNext(insert, newSet, laptops, infoBase, nameStore);
+            else {
+                for (Config it : laptops) {
+                    if (scan <= it.hdd) {
+                        System.out.println(it);
+                        newSet.add(it);
+                        writeFile(newSet);
+                    }
+                }
+                System.out.println("");
+                System.out.println("Количество соответствующих моделей: "+newSet.size());
+                stepNext(insert, newSet, laptops, infoBase, nameStore);
+            }
         } else if (getScan == 4) {
             System.out.print("Введите минимальный объём RAM(32 max): ");
             int scan = insert.nextInt();
-            for (Config it : laptops) {
-                if (scan <= it.ram) {
-                    System.out.println(it);
-                    newSet.add(it);
-                    writeFile(newSet);
-                }
+            if(scan>32){
+                System.out.println("Данной объёма RAM нет в наличие!");
+                getLaptop(laptops, infoBase, nameStore);
             }
-            stepNext(insert, newSet, laptops, infoBase, nameStore);
+            else {
+                for (Config it : laptops) {
+                    if (scan <= it.ram) {
+                        System.out.println(it);
+                        newSet.add(it);
+                        writeFile(newSet);
+                    }
+                }
+                System.out.println("");
+                System.out.println("Количество соответствующих моделей: "+newSet.size());
+                stepNext(insert, newSet, laptops, infoBase, nameStore);
+            }
         } else if (getScan == 5) {
             System.out.println("Поиск по системе: [Windows],[Linux],[Android],[noOS]");
             System.out.print("Введите название предпочтительной системы из списка: ");
