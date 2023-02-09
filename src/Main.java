@@ -21,18 +21,19 @@ public class Main {
         Set<Config> laptops = new HashSet<>();
         Set<Config> infoBase = new HashSet<>();
         Random random = new Random();
+        String nameStore = "RTX-Life";
         int minNum = 15;
-        int maxNum = 40;
+        int maxNum = 41;
         int count = random.nextInt(maxNum - minNum) + minNum;
-        System.out.println("\t\t\t\tДобро пожаловать в магазин!");
+        System.out.println("\t\t\t Добро пожаловать в магазин " + nameStore + "!");
         System.out.println("\t\t\tМы представляем ноутбуки на любой вкус!");
-        System.out.println("\t\t\t\tСейчас в наличие " + count + " ноутбуков!\n");
+        System.out.println("\t\t\t\tСейчас в наличие " + count + " ноутбуков!");
+        System.out.println("\t\t(Количество ноутбуков генерируется от 15 до 40)\n");
         fillSet(laptops, infoBase, count);
-        showCollection(laptops, infoBase);
-
+        showCollection(laptops, infoBase,nameStore);
     }
 
-    static void showCollection(Set<Config> laptopCollection, Set<Config> infoBase) {
+    static void showCollection(Set<Config> laptopCollection, Set<Config> infoBase,String nameStore) {
         System.out.println("Распечатать весь список[Печать] ноутбуков или подобрать[Подбор] по параметрам?");
         Scanner scan = new Scanner(System.in);
         String resScan = scan.next();
@@ -40,15 +41,13 @@ public class Main {
             for (Config it : laptopCollection) {
                 System.out.println(it);
             }
-            showCollection(laptopCollection, infoBase);
+            showCollection(laptopCollection, infoBase, nameStore);
         } else if (resScan.equals("Подбор")) {
-            getLaptop(laptopCollection, infoBase);
-
+            getLaptop(laptopCollection, infoBase, nameStore);
         } else {
             System.out.println("Введите верное значение!");
-            showCollection(laptopCollection, infoBase);
+            showCollection(laptopCollection, infoBase, nameStore);
         }
-
     }
 
     static void laptopFill(Set<Config> laptops) {
@@ -60,7 +59,6 @@ public class Main {
         laptop.ram = laptop.getRam();
         laptop.system = laptop.getSystem();
         laptops.add(laptop);
-
     }
 
     static void fillSet(Set<Config> laptops, Set<Config> infoBase, int count) {
@@ -96,7 +94,7 @@ public class Main {
         }
     }
 
-    static void getLaptop(Set<Config> laptops, Set<Config> infoBase) {
+    static void getLaptop(Set<Config> laptops, Set<Config> infoBase, String nameStore) {
         Set<Config> newSet = new HashSet<>();
         System.out.println("[1] Производитель; [2] Диагональ; [3] HDD; [4] RAM; [5] Операционная система; [6] Цвет; ");
         System.out.print("Выберите нужный параметр введя цифру: ");
@@ -113,7 +111,7 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            stepNext(insert, newSet, laptops, infoBase);
+            stepNext(insert, newSet, laptops, infoBase,nameStore);
         } else if (getScan == 2) {
             System.out.println("Поиск по диагонали: [14.1],[15.6],[16.0],[17.3]");
             System.out.print("Введите минимальную диагональ(можно использовать запятую): ");
@@ -125,7 +123,7 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            stepNext(insert, newSet, laptops, infoBase);
+            stepNext(insert, newSet, laptops, infoBase,nameStore);
         } else if (getScan == 3) {
             System.out.print("Укажите минимальный объём HDD: ");
             int scan = insert.nextInt();
@@ -136,7 +134,7 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            stepNext(insert, newSet, laptops, infoBase);
+            stepNext(insert, newSet, laptops, infoBase,nameStore);
         } else if (getScan == 4) {
             System.out.print("Введите минимальный объём RAM: ");
             int scan = insert.nextInt();
@@ -147,7 +145,7 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            stepNext(insert, newSet, laptops, infoBase);
+            stepNext(insert, newSet, laptops, infoBase,nameStore);
         } else if (getScan == 5) {
             System.out.println("Поиск по системе: [Windows],[Linux],[Android],[noOS]");
             System.out.print("Введите название предпочтительной системы из списка: ");
@@ -159,7 +157,7 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            stepNext(insert, newSet, laptops, infoBase);
+            stepNext(insert, newSet, laptops, infoBase,nameStore);
         } else if (getScan == 6) {
             System.out.println("Поиск по цвету: [Белый],[Чёрный],[Серебристый],[Золотой]");
             System.out.print("Введите предпочтительный цвет из списка: ");
@@ -171,24 +169,25 @@ public class Main {
                     writeFile(newSet);
                 }
             }
-            stepNext(insert, newSet, laptops, infoBase);
+            stepNext(insert, newSet, laptops, infoBase,nameStore);
         } else {
             System.out.println("Вы ввели неверное значение!");
-            getLaptop(laptops, infoBase);
+            getLaptop(laptops, infoBase,nameStore);
         }
         insert.close();
     }
 
-    static void stepNext(Scanner insert, Set<Config> newSet, Set<Config> laptops, Set<Config> infoBase) {
+    static void stepNext(Scanner insert, Set<Config> newSet, Set<Config> laptops, Set<Config> infoBase,String nameStore) {
         System.out.println("Запустить заново[Заново] или фильтровать текущий список[Дальше] или [Стоп] для остановки");
         String chat = insert.next();
         if (chat.equals("Дальше")) {
-            getLaptop(newSet, laptops);
+            getLaptop(newSet, laptops,nameStore);
         } else if (chat.equals("Заново")) {
-            showCollection(infoBase, infoBase);
+            showCollection(infoBase, infoBase,nameStore);
         } else if (chat.equals("Стоп")) {
-            System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
-            System.out.println("\t\t\t\t\tВсего хорошего!");
+            System.out.println("Ноутбуки полученные по вашим критериям сохранены в файл Found_Model.txt");
+            System.out.println("Количество ноутбуков по вашему запросу: "+newSet.size()+"шт.");
+            System.out.println("\t\t\tВсего хорошего! Команда "+nameStore+"!");
             return;
         }
         return;
