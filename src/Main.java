@@ -244,6 +244,7 @@ public class Main {
             }
         } else {
             System.out.println("Вы ввели неверное значение!");
+            getLaptop(laptops,infoBase);
         }
 
 
