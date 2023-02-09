@@ -42,7 +42,7 @@ public class Config {
 
     int getHdd() {
         int min = 128;
-        int max = 2048;
+        int max = 2049;
         Random ranHdd = new Random();
         return ranHdd.nextInt(max - min) + min;
     }

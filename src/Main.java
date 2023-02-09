@@ -132,7 +132,7 @@ public class Main {
             }
             stepNext(insert, newSet, laptops, infoBase, nameStore);
         } else if (getScan == 3) {
-            System.out.print("Укажите минимальный объём HDD: ");
+            System.out.print("Укажите минимальный объём HDD(2048 max): ");
             int scan = insert.nextInt();
             for (Config it : laptops) {
                 if (scan <= it.hdd) {
@@ -143,7 +143,7 @@ public class Main {
             }
             stepNext(insert, newSet, laptops, infoBase, nameStore);
         } else if (getScan == 4) {
-            System.out.print("Введите минимальный объём RAM: ");
+            System.out.print("Введите минимальный объём RAM(32 max): ");
             int scan = insert.nextInt();
             for (Config it : laptops) {
                 if (scan <= it.ram) {
@@ -193,9 +193,13 @@ public class Main {
             showCollection(infoBase, infoBase, nameStore);
         } else if (chat.equals("Стоп")) {
             System.out.println("Ноутбуки полученные по вашим критериям сохранены в файл Found_Model.txt");
-            System.out.println("Количество ноутбуков по вашему запросу: " + newSet.size() + "шт.");
+            System.out.println("Количество ноутбуков по вашему запросу: " + newSet.size() + "шт.\n");
             System.out.println("\t\t\tВсего хорошего! Команда " + nameStore + "!");
             return;
+        }
+        else {
+            System.out.println("Введите корректную фразу!");
+            stepNext(insert,newSet,laptops,infoBase,nameStore);
         }
         return;
     }
