@@ -1,4 +1,7 @@
 import java.io.FileWriter;
+import java.sql.Time;
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Main {
@@ -18,6 +21,7 @@ public class Main {
      */
 
     public static void main(String[] args) {
+        Date time = new Date(System.currentTimeMillis());
         Set<Config> laptops = new HashSet<>();
         Set<Config> infoBase = new HashSet<>();
         Random random = new Random();
@@ -25,10 +29,11 @@ public class Main {
         int minNum = 15;
         int maxNum = 41;
         int count = random.nextInt(maxNum - minNum) + minNum;
-        System.out.println("\t\t\t Добро пожаловать в магазин " + nameStore + "!");
+        System.out.println("\t\t\t Добро пожаловать в магазин " + nameStore + "!      "+"Сегодня "+time);
         System.out.println("\t\t\tМы представляем ноутбуки на любой вкус!");
         System.out.println("\t\t\t\tСейчас в наличие " + count + " ноутбуков!");
         System.out.println("\t\t(Количество ноутбуков генерируется от 15 до 40)\n");
+
         fillSet(laptops, infoBase, count);
         showCollection(laptops, infoBase, nameStore);
     }
