@@ -23,33 +23,34 @@ public class Main {
         Random random = new Random();
         int minNum = 15;
         int maxNum = 40;
-        int count = random.nextInt(maxNum-minNum)+minNum;
+        int count = random.nextInt(maxNum - minNum) + minNum;
         System.out.println("\t\t\t\tДобро пожаловать в магазин!");
         System.out.println("\t\t\tМы представляем ноутбуки на любой вкус!");
         System.out.println("\t\t\t\tСейчас в наличие " + count + " ноутбуков!\n");
         fillSet(laptops, infoBase, count);
-        showCollection(laptops,infoBase);
+        showCollection(laptops, infoBase);
 
     }
-    static void showCollection(Set<Config> laptopCollection, Set<Config> infoBase){
+
+    static void showCollection(Set<Config> laptopCollection, Set<Config> infoBase) {
         System.out.println("Распечатать весь список[Печать] ноутбуков или подобрать[Подбор] по параметрам?");
         Scanner scan = new Scanner(System.in);
         String resScan = scan.next();
-        if(resScan.equals("Печать")){
-            for (Config it: laptopCollection) {
+        if (resScan.equals("Печать")) {
+            for (Config it : laptopCollection) {
                 System.out.println(it);
             }
-            showCollection(laptopCollection,infoBase);
+            showCollection(laptopCollection, infoBase);
         } else if (resScan.equals("Подбор")) {
             getLaptop(laptopCollection, infoBase);
 
-        }
-        else {
+        } else {
             System.out.println("Введите верное значение!");
-            showCollection(laptopCollection,infoBase);
+            showCollection(laptopCollection, infoBase);
         }
 
     }
+
     static void laptopFill(Set<Config> laptops) {
         Config laptop = new Config();
         laptop.color = laptop.getColor();
@@ -100,7 +101,6 @@ public class Main {
         System.out.println("[1] Производитель; [2] Диагональ; [3] HDD; [4] RAM; [5] Операционная система; [6] Цвет; ");
         System.out.print("Выберите нужный параметр введя цифру: ");
         Scanner insert = new Scanner(System.in);
-
         int getScan = insert.nextInt();
         if (getScan == 1) {
             System.out.println("Поиск по производителям: [Asus],[Acer],[Lenovo],[HP],[Huawei]");
@@ -120,12 +120,11 @@ public class Main {
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
-                showCollection(infoBase,infoBase);
-            }
-            else if (chat.equals("Стоп")) {
+                showCollection(infoBase, infoBase);
+            } else if (chat.equals("Стоп")) {
                 System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
                 System.out.println("\t\t\t\t\tВсего хорошего!");
-               return;
+                return;
             }
 
 
@@ -145,9 +144,8 @@ public class Main {
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
-                showCollection(infoBase,infoBase);
-            }
-            else if (chat.equals("Стоп")) {
+                showCollection(infoBase, infoBase);
+            } else if (chat.equals("Стоп")) {
                 System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
                 System.out.println("\t\t\t\t\tВсего хорошего!");
                 return;
@@ -167,9 +165,8 @@ public class Main {
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
-                showCollection(infoBase,infoBase);
-            }
-            else if (chat.equals("Стоп")) {
+                showCollection(infoBase, infoBase);
+            } else if (chat.equals("Стоп")) {
                 System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
                 System.out.println("\t\t\t\t\tВсего хорошего!");
                 return;
@@ -189,9 +186,8 @@ public class Main {
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
-                showCollection(infoBase,infoBase);
-            }
-            else if (chat.equals("Стоп")) {
+                showCollection(infoBase, infoBase);
+            } else if (chat.equals("Стоп")) {
                 System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
                 System.out.println("\t\t\t\t\tВсего хорошего!");
                 return;
@@ -212,9 +208,8 @@ public class Main {
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
-                showCollection(infoBase,infoBase);
-            }
-            else if (chat.equals("Стоп")) {
+                showCollection(infoBase, infoBase);
+            } else if (chat.equals("Стоп")) {
                 System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
                 System.out.println("\t\t\t\t\tВсего хорошего!");
                 return;
@@ -235,19 +230,16 @@ public class Main {
             if (chat.equals("Дальше")) {
                 getLaptop(newSet, laptops);
             } else if (chat.equals("Заново")) {
-                showCollection(infoBase,infoBase);
-            }
-            else if (chat.equals("Стоп")) {
+                showCollection(infoBase, infoBase);
+            } else if (chat.equals("Стоп")) {
                 System.out.println("Ноутбук(и) полученные по вашим критериям сохранены в файл Found_Model.txt");
                 System.out.println("\t\t\t\t\tВсего хорошего!");
                 return;
             }
         } else {
             System.out.println("Вы ввели неверное значение!");
-            getLaptop(laptops,infoBase);
+            getLaptop(laptops, infoBase);
         }
-
-
         insert.close();
     }
 }
