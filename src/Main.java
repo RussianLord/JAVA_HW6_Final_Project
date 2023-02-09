@@ -29,7 +29,7 @@ public class Main {
         int minNum = 15;
         int maxNum = 41;
         int count = random.nextInt(maxNum - minNum) + minNum;
-        System.out.println("\t\t\t Добро пожаловать в магазин " + nameStore + "!      "+"Сегодня "+time);
+        System.out.println("\t\t\t Добро пожаловать в магазин " + nameStore + "!      " + "Сегодня " + time);
         System.out.println("\t\t\tМы представляем ноутбуки на любой вкус!");
         System.out.println("\t\t\t\tСейчас в наличие " + count + " ноутбуков!");
         System.out.println("\t\t(Количество ноутбуков генерируется от 15 до 40)\n");
@@ -111,7 +111,7 @@ public class Main {
             System.out.println("Поиск по производителям: [Asus],[Acer],[Lenovo],[HP],[Huawei]");
             System.out.print("Введите название предпочтительного бренда из списка: ");
             String name = insert.next();
-            int  checkCount = 0;
+            int checkCount = 0;
             for (Config it : laptops) {
                 if (name.equals(it.brand)) {
                     System.out.println(it);
@@ -120,13 +120,12 @@ public class Main {
                     checkCount++;
                 }
             }
-            System.out.println("");
-            System.out.println("Количество соответствующих моделей: "+newSet.size());
-            if(checkCount<1){
+            if (checkCount < 1) {
                 System.out.println("Данной модели нет в наличие!");
                 getLaptop(laptops, infoBase, nameStore);
-            }
-            else {
+            } else {
+                System.out.println("");
+                System.out.println("Количество соответствующих моделей: " + newSet.size() + "\n");
                 stepNext(insert, newSet, laptops, infoBase, nameStore);
             }
 
@@ -134,11 +133,10 @@ public class Main {
             System.out.println("Поиск по диагонали: [14.1],[15.6],[16.0],[17.3]");
             System.out.print("Введите минимальную диагональ(можно использовать запятую): ");
             double mark = insert.nextDouble();
-            if(mark>17.3){
+            if (mark > 17.3) {
                 System.out.println("Данной модели нет в наличие!");
                 getLaptop(laptops, infoBase, nameStore);
-            }
-            else {
+            } else {
                 for (Config it : laptops) {
                     if (mark <= it.inch) {
                         System.out.println(it);
@@ -147,18 +145,17 @@ public class Main {
                     }
                 }
                 System.out.println("");
-                System.out.println("Количество соответствующих моделей: "+newSet.size());
+                System.out.println("Количество соответствующих моделей: " + newSet.size() + "\n");
                 stepNext(insert, newSet, laptops, infoBase, nameStore);
             }
 
         } else if (getScan == 3) {
             System.out.print("Укажите минимальный объём HDD(2048 max): ");
             int scan = insert.nextInt();
-            if(scan>2048){
+            if (scan > 2048) {
                 System.out.println("Данной объёма HDD нет в наличие!");
                 getLaptop(laptops, infoBase, nameStore);
-            }
-            else {
+            } else {
                 for (Config it : laptops) {
                     if (scan <= it.hdd) {
                         System.out.println(it);
@@ -167,17 +164,16 @@ public class Main {
                     }
                 }
                 System.out.println("");
-                System.out.println("Количество соответствующих моделей: "+newSet.size());
+                System.out.println("Количество соответствующих моделей: " + newSet.size() + "\n");
                 stepNext(insert, newSet, laptops, infoBase, nameStore);
             }
         } else if (getScan == 4) {
             System.out.print("Введите минимальный объём RAM(32 max): ");
             int scan = insert.nextInt();
-            if(scan>32){
+            if (scan > 32) {
                 System.out.println("Данной объёма RAM нет в наличие!");
                 getLaptop(laptops, infoBase, nameStore);
-            }
-            else {
+            } else {
                 for (Config it : laptops) {
                     if (scan <= it.ram) {
                         System.out.println(it);
@@ -186,14 +182,14 @@ public class Main {
                     }
                 }
                 System.out.println("");
-                System.out.println("Количество соответствующих моделей: "+newSet.size());
+                System.out.println("Количество соответствующих моделей: " + newSet.size() + "\n");
                 stepNext(insert, newSet, laptops, infoBase, nameStore);
             }
         } else if (getScan == 5) {
             System.out.println("Поиск по системе: [Windows],[Linux],[Android],[noOS]");
             System.out.print("Введите название предпочтительной системы из списка: ");
             String system = insert.next();
-            int  checkCount = 0;
+            int checkCount = 0;
             for (Config it : laptops) {
                 if (system.equals(it.system)) {
                     System.out.println(it);
@@ -202,11 +198,10 @@ public class Main {
                     checkCount++;
                 }
             }
-            if(checkCount<1){
+            if (checkCount < 1) {
                 System.out.println("Данной системы нет в наличие!");
                 getLaptop(laptops, infoBase, nameStore);
-            }
-            else {
+            } else {
                 stepNext(insert, newSet, laptops, infoBase, nameStore);
             }
         } else if (getScan == 6) {
@@ -222,11 +217,12 @@ public class Main {
                     checkCount++;
                 }
             }
-            if(checkCount<1){
+            if (checkCount < 1) {
                 System.out.println("Данного цвета нет в наличие!");
                 getLaptop(laptops, infoBase, nameStore);
-            }
-            else {
+            } else {
+                System.out.println("");
+                System.out.println("Количество соответствующих моделей: " + newSet.size() + "\n");
                 stepNext(insert, newSet, laptops, infoBase, nameStore);
             }
         } else {
@@ -248,10 +244,9 @@ public class Main {
             System.out.println("Количество ноутбуков по вашему запросу: " + newSet.size() + "шт.\n");
             System.out.println("\t\t\tВсего хорошего! Команда " + nameStore + "!");
             return;
-        }
-        else {
+        } else {
             System.out.println("Введите корректную фразу!");
-            stepNext(insert,newSet,laptops,infoBase,nameStore);
+            stepNext(insert, newSet, laptops, infoBase, nameStore);
         }
         return;
     }
